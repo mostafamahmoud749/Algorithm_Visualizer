@@ -55,7 +55,6 @@ export default function AlgorithmDashboard({
       jump: -1,
       exponential: -1,
     });
-    setText('Start');
   }, [setState, setRunning]);
   const updateIndex = useCallback((name, index) => {
     setStepIndex((prev) => ({ ...prev, [name]: index }));
@@ -72,7 +71,7 @@ export default function AlgorithmDashboard({
             key={el}
             className={`flex flex-col items-center gap-2 ${type === 'search' && index !== 0 ? 'mt-4' : ''}`}
           >
-            <h2 className="font-bold text-lg text-gray-700">
+            <h2 className="text-lg font-bold text-gray-700">
               {el} {type}
             </h2>
             <Algorithm
@@ -112,7 +111,7 @@ export default function AlgorithmDashboard({
   ]);
 
   return (
-    <div className=" w-full  flex flex-col justify-center items-center ">
+    <div className="flex flex-col items-center justify-center w-full ">
       <Controls
         options={options}
         state={state}
@@ -138,8 +137,8 @@ export default function AlgorithmDashboard({
       </div>
 
       {/* Control Bar */}
-      <div className=" mb-2 w-full max-w-3xl">
-        <div className="flex items-center justify-center gap-5 px-4 py-3 rounded-2xl border border-gray-200 bg-gray-50 shadow-sm">
+      <div className="w-full max-w-3xl mb-2 ">
+        <div className="flex items-center justify-center gap-5 px-4 py-3 border border-gray-200 shadow-sm rounded-2xl bg-gray-50">
           {/* Previous */}
           <button
             onClick={() => {
@@ -152,7 +151,7 @@ export default function AlgorithmDashboard({
               });
             }}
             aria-label="Previous step"
-            className="group flex items-center justify-center w-12 h-12 rounded-full bg-white border border-gray-200 text-gray-700 shadow-sm hover:bg-gray-100 hover:text-blue-600 hover:border-blue-300 transition"
+            className="flex items-center justify-center w-12 h-12 text-gray-700 transition bg-white border border-gray-200 rounded-full shadow-sm group hover:bg-gray-100 hover:text-blue-600 hover:border-blue-300"
           >
             <SkipBack
               size={20}
@@ -198,7 +197,7 @@ export default function AlgorithmDashboard({
               });
             }}
             aria-label="Next step"
-            className="group flex items-center justify-center w-12 h-12 rounded-full bg-white border border-gray-200 text-gray-700 shadow-sm hover:bg-gray-100 hover:text-blue-600 hover:border-blue-300 transition"
+            className="flex items-center justify-center w-12 h-12 text-gray-700 transition bg-white border border-gray-200 rounded-full shadow-sm group hover:bg-gray-100 hover:text-blue-600 hover:border-blue-300"
           >
             <SkipForward
               size={20}
@@ -207,13 +206,13 @@ export default function AlgorithmDashboard({
           </button>
 
           {/* Divider */}
-          <span className="h-6 w-px bg-gray-300 mx-1" />
+          <span className="w-px h-6 mx-1 bg-gray-300" />
 
           {/* Reset */}
           <button
             onClick={toggleReset}
             aria-label="Reset"
-            className="group flex items-center justify-center w-12 h-12 rounded-full bg-white border border-gray-200 text-gray-500 shadow-sm hover:bg-red-50 hover:text-red-500 hover:border-red-300 transition"
+            className="flex items-center justify-center w-12 h-12 text-gray-500 transition bg-white border border-gray-200 rounded-full shadow-sm group hover:bg-red-50 hover:text-red-500 hover:border-red-300"
           >
             <RefreshCw
               size={18}

@@ -11,10 +11,16 @@ export default function Navs() {
   const active =
     'bg-yellow-500 text-white border-yellow-500 hover:bg-yellow-600 hover:border-yellow-600';
   return (
-    <div className="flex justify-center items-center gap-3 mb-4">
+    <div className="flex items-center justify-center gap-3 mb-4">
       <Link
         href="/"
         className={`${linkBase} ${pathname === '/' ? active : inactive}`}
+      >
+        Home
+      </Link>
+      <Link
+        href="/sort"
+        className={`${linkBase} ${pathname === '/sort' ? active : inactive}`}
       >
         Sorting
       </Link>
@@ -25,6 +31,14 @@ export default function Navs() {
         }`}
       >
         Searching
+      </Link>
+      <Link
+        href="/algo"
+        className={`${linkBase} ${
+          pathname.startsWith('/algo') ? active : inactive
+        }`}
+      >
+        DP&Greedy
       </Link>
     </div>
   );
